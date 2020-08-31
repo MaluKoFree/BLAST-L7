@@ -5,7 +5,7 @@ const net = require('net')
 
 const config = require('../temp.json')
 
-const proxies = fs.readFileSync(`${__dirname}\\..\\${config.proxies}`, 'utf-8').match(/\S+/g)
+const proxies = fs.readFileSync(__dirname + '/../proxy.txt', 'utf-8').match(/\S+/g)
 
 const emitter = new event()
 emitter.setMaxListeners(Number.POSITIVE_INFINITY)

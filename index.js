@@ -4,8 +4,8 @@ const { Command } = require('commander')
 const log = require('./modules/logger')
 const thread = require('./modules/threads')
 
-var temp = `${__dirname}\\temp.json`
-var proxy = `${__dirname}\\proxy.txt`
+var temp = `temp.json`
+var proxy = `proxy.txt`
 
 log.banner()
 
@@ -40,12 +40,12 @@ if (fs.existsSync(proxy)) {
 if (fs.existsSync(temp))
     fs.unlinkSync(temp)
 
-fs.writeFile(temp, `{ "proxies": "proxy.txt", "method": "${program.method}", "url" : "${program.url}", "time": ${program.time}, "reqpproxy": ${program.reqs} }`, function (err) {
+fs.writeFile(temp, `{ "method": "${program.method}", "url" : "${program.url}", "time": ${program.time}, "reqpproxy": ${program.reqs} }`, function (err) {
     if (err)
         return log.error('error on create temp.json.')
 
     for (var i = 0; i < program.threads; i++) {
-        thread.CreateThread(`${__dirname}\\modules\\attack.js`)
+        thread.CreateThread(`./modules/attack.js`)
     }
 
     log.success("Attack started!")
