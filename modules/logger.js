@@ -6,7 +6,7 @@ module.exports = {
         console.log(chalk.hex('#ffffff')(" ______         _______ _______ _______"))
         console.log(chalk.hex('#ffffff')(" |_____] |      |_____| |______    |   "))
         console.log(chalk.hex('#ffffff')(" |_____] |_____ |     | ______|    |   "))
-        console.log(chalk.hex('#ffffff')("                                a strongest http flood."))
+        console.log(chalk.hex('#ffffff')("                 a strongest multi-thread http flood."))
         console.log(chalk.hex('#ffffff')(" "))
     },
     args: function () {

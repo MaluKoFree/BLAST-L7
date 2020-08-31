@@ -1,7 +1,5 @@
 const fs = require('fs')
-const {
-    Command
-} = require('commander')
+const { Command } = require('commander')
 
 const log = require('./modules/logger')
 const thread = require('./modules/threads')
@@ -46,7 +44,7 @@ fs.writeFile(temp, `{ "proxies": "proxy.txt", "method": "${program.method}", "ur
     if (err)
         return log.error('error on create temp.json.')
 
-    for (var i = 0; i < 15; i++) {
+    for (var i = 0; i < program.threads; i++) {
         thread.CreateThread(`${__dirname}\\modules\\attack.js`)
     }
 
