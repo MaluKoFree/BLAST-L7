@@ -1,0 +1,7 @@
+{
+    "proxies": "proxy.txt",
+    "method": "GET",
+    "url" : "http://91.232.174.70/HIT",
+    "time": 30,
+    "reqpproxy": 50
+}
