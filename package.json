@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.0",
+    "commander": "^6.1.0",
     "events": "^3.2.0",
     "fs": "0.0.1-security",
     "net": "^1.0.2",
