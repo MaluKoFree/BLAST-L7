@@ -2,6 +2,8 @@
 
 ## a strongest multi-thread http flood.
 
-### install all dependencies using: npm install
+### This tool was made for stress testing!
+
+#### install all dependencies using: npm i
 ![Preview](/preview.png)
  
