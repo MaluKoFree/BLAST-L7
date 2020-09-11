@@ -5,5 +5,3 @@
 ### This tool was made for stress testing!
 
 #### install all dependencies using: npm i
-![Preview](/preview.png)
- 

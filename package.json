@@ -1,6 +1,6 @@
 {
   "name": "blast",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "a strongest multi-thread http flood.",
   "main": "index.js",
   "scripts": { },
