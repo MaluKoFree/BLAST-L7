@@ -4,7 +4,7 @@
 
 ### This tool was made for stress testing!
 
-<a align="center"><img align="center" src="https://img.shields.io/badge/javascript-blueviolet?&style=for-the-badge&logo=javascript&logoColor=white"/></a> &nbsp;   
+<a align="center"><img align="center" src="https://img.shields.io/badge/javascript-yellow?&style=for-the-badge&logo=javascript&logoColor=white"/></a> &nbsp;   
 
 #### install all dependencies using: npm i
 #### How to use (Parameters)
